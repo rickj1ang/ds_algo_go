@@ -14,7 +14,7 @@ var edges = [][]Vertex{
 
 // This function can test New, AddEdge, AddVertex and print
 func TestNew(t *testing.T) {
-	g := newAdjListGraph(edges)
+	g := NewAdjListGraph(edges)
 	if g.AdjList[1][0] != 2 {
 		t.Errorf("Expect: 2; Actual: %d", g.AdjList[1][0])
 	}
@@ -25,7 +25,7 @@ func TestNew(t *testing.T) {
 }
 
 func TestRemoveVertex(t *testing.T) {
-	g := newAdjListGraph(edges)
+	g := NewAdjListGraph(edges)
 	fmt.Println("The Graph:")
 	g.print()
 	g.removeVertex(1)
@@ -41,7 +41,7 @@ func TestDel(t *testing.T) {
 }
 
 func TestRemoveEdge(t *testing.T) {
-	g := newAdjListGraph(edges)
+	g := NewAdjListGraph(edges)
 	fmt.Println("The Graph:")
 	g.print()
 	g.removeEdge(1, 2)

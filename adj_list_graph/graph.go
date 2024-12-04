@@ -19,7 +19,7 @@ type AdjListGraph struct {
 	AdjList map[Vertex][]Vertex
 }
 
-func newAdjListGraph(edges [][]Vertex) *AdjListGraph {
+func NewAdjListGraph(edges [][]Vertex) *AdjListGraph {
 	g := &AdjListGraph{
 		AdjList: make(map[Vertex][]Vertex),
 	}
