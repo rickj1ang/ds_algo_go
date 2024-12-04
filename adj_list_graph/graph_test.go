@@ -15,11 +15,11 @@ var edges = [][]Vertex{
 // This function can test New, AddEdge, AddVertex and print
 func TestNew(t *testing.T) {
 	g := newAdjListGraph(edges)
-	if g.adjList[1][0] != 2 {
-		t.Errorf("Expect: 2; Actual: %d", g.adjList[1][0])
+	if g.AdjList[1][0] != 2 {
+		t.Errorf("Expect: 2; Actual: %d", g.AdjList[1][0])
 	}
 	if g.size() != 4 {
-		t.Errorf("Expect: len = 4; Actual: %d", len(g.adjList))
+		t.Errorf("Expect: len = 4; Actual: %d", len(g.AdjList))
 	}
 	g.print()
 }
