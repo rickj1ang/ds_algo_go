@@ -1,4 +1,4 @@
-package GBFS
+package graphTraverse
 
 import adjListGraph "github.com/rickj1ang/ds_algo_go/adj_list_graph"
 

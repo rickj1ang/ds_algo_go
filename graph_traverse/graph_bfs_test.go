@@ -1,4 +1,4 @@
-package GBFS
+package graphTraverse
 
 import (
 	"testing"
@@ -36,6 +36,7 @@ func TestBFS(t *testing.T) {
 	res := graphBFS(g, start)
 	// please check the out put fit or not the BFS by your self.
 	// on my devide it works well!! :)
+	t.Log("BFS:\n")
 	t.Log(res)
 
 }
