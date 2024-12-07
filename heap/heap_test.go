@@ -56,3 +56,10 @@ func TestBuildMaxHeap(t *testing.T) {
 	}
 
 }
+
+func TestTopK(t *testing.T) {
+	nums := []int{1, 5, 3, 6, 10, 23, 456, 56, 23}
+	minH := topKHeap(nums, 3)
+	// check quikly by see the output from log, must use test -v
+	t.Log(minH.IntSlice)
+}

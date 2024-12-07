@@ -1,6 +1,7 @@
 package heap
 
 import (
+	"container/heap"
 	"fmt"
 	"sort"
 )
@@ -139,6 +140,21 @@ func buildMaxHeap(nums []any) *maxHeap {
 	for i := h.parent(len(h.data) - 1); i >= 0; i-- {
 		//heapify
 		h.siftDown(i)
+	}
+	return h
+}
+
+func topKHeap(nums []int, k int) *MinHeap {
+	h := &MinHeap{}
+	for i := 0; i < k; i++ {
+		heap.Push(h, nums[i])
+	}
+
+	for i := k; i < len(nums); i++ {
+		if nums[i] > h.Top().(int) {
+			heap.Pop(h)
+			heap.Push(h, nums[i])
+		}
 	}
 	return h
 }
