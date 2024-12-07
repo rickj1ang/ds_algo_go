@@ -44,3 +44,15 @@ func TestMaxHeap(t *testing.T) {
 		t.Errorf("Peek:: expect: 7; actual: %d", maxH.peek())
 	}
 }
+
+func TestBuildMaxHeap(t *testing.T) {
+	// This is a debug method simply print something out, fiugure out
+	// which step program stuck into
+	t.Log("Start test build max heap")
+	h := buildMaxHeap([]any{1, 8, 5, 4, 10, 6, 9})
+	t.Log("Build the heap successfully")
+	if h.peek().(int) != 10 {
+		t.Errorf("Peek:: expect: 8; actual: %d", h.peek().(int))
+	}
+
+}

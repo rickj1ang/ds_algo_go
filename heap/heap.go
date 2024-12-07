@@ -133,3 +133,12 @@ func (m *maxHeap) isEmpty() bool {
 	}
 	return true
 }
+
+func buildMaxHeap(nums []any) *maxHeap {
+	h := &maxHeap{data: nums}
+	for i := h.parent(len(h.data) - 1); i >= 0; i-- {
+		//heapify
+		h.siftDown(i)
+	}
+	return h
+}
