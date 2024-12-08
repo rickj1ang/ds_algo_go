@@ -1,5 +1,7 @@
 package binarytree
 
+import "container/list"
+
 // in the same package there is a ordinary TreeNode, be care
 type nodeAVL struct {
 	Val    int
@@ -178,4 +180,28 @@ func (t *avlTree) removeHelper(node *nodeAVL, val int) *nodeAVL {
 	node.updateHeight()
 	node.rotate()
 	return node
+}
+
+// It is not a good practice, this just as same as BFS with normal tree
+// I just change the object of this method, actual we need to abstract an
+// interface to have The method BFS() []any, TBD
+func (aT *avlTree) avlBFS() []any {
+	// list.New() return a boubly link list,
+	// a little waste of storage
+	queue := list.New()
+	queue.PushBack(aT.root)
+
+	res := make([]any, 0)
+	for queue.Len() > 0 {
+		node := queue.Remove(queue.Front()).(*nodeAVL)
+
+		res = append(res, node.Val)
+		if node.Left != nil {
+			queue.PushBack(node.Left)
+		}
+		if node.Right != nil {
+			queue.PushBack(node.Right)
+		}
+	}
+	return res
 }
