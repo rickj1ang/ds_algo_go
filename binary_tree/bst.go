@@ -9,8 +9,7 @@ func (bst *binarySearchTree) search(val int) *TreeNode {
 	for node != nil {
 		if node.Val < val {
 			node = node.Right
-		}
-		if node.Val > val {
+		} else if node.Val > val {
 			node = node.Left
 		} else {
 			break
@@ -107,5 +106,4 @@ func (bst *binarySearchTree) remove(val int) {
 		bst.remove(tmp.Val)
 		cur.Val = tmp.Val
 	}
-
 }
