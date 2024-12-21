@@ -17,8 +17,12 @@ func backtrackPermutation(state []int, choices []int, selected []bool, res [][]i
 	if isSolutionP(state, choices) {
 		res = recordSolutionP(state, res)
 	}
+	// use struct{} as value of a map is more eco than bool
+	// when U just need to use map as a signal or record
+	duplicated := make(map[int]struct{}, 0)
 	for idx, choice := range choices {
-		if isValidP(selected, idx) {
+		if _, ok := duplicated[choice]; isValidP(selected, idx) && !ok {
+			duplicated[choice] = struct{}{}
 			selected, state = makeChoiceP(idx, selected, state, choice)
 			res, state, selected = backtrackPermutation(state, choices, selected, res)
 			state, selected = undoChoiceP(idx, state, selected)
