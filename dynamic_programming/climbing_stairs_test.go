@@ -9,3 +9,9 @@ func TestClimbingStair(t *testing.T) {
 	t.Log("successful climbed the stairs")
 
 }
+
+func TestMinCostClimbing(t *testing.T) {
+	cost := []int{0, 1, 10, 1}
+	minCost := minCostClimbStair(cost)
+	t.Log(minCost)
+}
